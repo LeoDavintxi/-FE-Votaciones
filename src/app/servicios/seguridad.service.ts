@@ -50,7 +50,6 @@ export class SeguridadService {
   }
 
   /***
-
    */
 
   /**
@@ -61,9 +60,8 @@ export class SeguridadService {
    * @returns un booleano que indica si la información 
    * fue almacenada correctamente
    */
-  guardarDatosSesion(datosSesion: any) {
+   guardarDatosSesion(datosSesion: any) {
     let sesionActual = localStorage.getItem('sesion');
-    console.log("sesion actual "+sesionActual);
       let data: Usuario = {
         _id: datosSesion.user_id,
         token:datosSesion.token,
@@ -71,6 +69,7 @@ export class SeguridadService {
       localStorage.setItem('sesion', JSON.stringify(data));
       this.setUsuario(data);
   }
+
   /**
    * Permite cerrar la sesión del usuario
    * que estaba previamente logueado

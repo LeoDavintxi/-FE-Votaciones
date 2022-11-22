@@ -17,7 +17,9 @@ import { catchError } from 'rxjs/operators';
 export class TokenInterceptor implements HttpInterceptor {
   constructor(public miServicioSeguridad: SeguridadService, private router: Router) { }
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<any>> {
+    console.log("agregando token ",this.miServicioSeguridad.usuarioSesionActiva.token)
     if (this.miServicioSeguridad.usuarioSesionActiva) {
+      console.log("agregando token ",this.miServicioSeguridad.usuarioSesionActiva.token)
       request = request.clone({
         setHeaders: {
           Authorization: `Bearer ${this.miServicioSeguridad.usuarioSesionActiva.token}`
