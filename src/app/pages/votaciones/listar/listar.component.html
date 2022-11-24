@@ -1,36 +1,30 @@
 <div class="fondo">
-    <div class="col-lg-12">
-        <nb-card>
-            <nb-card-header>
-                ADMINISTRACIÓN RESULTADOS
-                <br>
-                Candidatos con mayor numero de votos
-                <select type="button" class="ggg">
-                    <i class="fas fa-plus"></i>
-                    <option value="1">Mesa 1</option>
-                    <option value="1">Mesa 2</option>
-                    <option value="1">Mesa 3</option>
-                    <option value="1">Mesa 4</option>
-                    <option value="1">Mesa 5</option>
-                    <option value="1">Mesa 6</option>
-                    <option value="1">Mesa 7</option>
-                </select>
-            </nb-card-header>
-            
-            <table class="table">
-                <tr>
-                    <th *ngFor="let columaActual of
-        nombresColumnas">{{columaActual}}</th>
-                </tr>
-                <ng-container *ngFor="let votacionActual of votaciones">
-                    <tr>
-                        <td>{{votacionActual.nombre_candidato}}</td>
-                        <td>{{votacionActual.apellido_candidato}}</td>
-                        <td>{{votacionActual.nombre_partido}}</td>
-                        <td>{{votacionActual.total_votos}}</td>
-                    </tr>
-                </ng-container>
-            </table>
-        </nb-card>
-    </div>
+  <div class="col-lg-12">
+    <nb-card>
+      <nb-card-header>
+        ADMINISTRACIÓN RESULTADOS
+        <br />
+        Candidatos con mayor numero de votos
+        <select [(ngModel)]="selectedValue" (change)="listarA2()">
+          <option *ngFor="let c of mesas" [ngValue]="c.num_mesa">{{ c.num_mesa }}</option>
+        </select>
+      </nb-card-header>
+
+      <table class="table">
+        <tr>
+          <th *ngFor="let columaActual of nombresColumnas">
+            {{ columaActual }}
+          </th>
+        </tr>
+        <ng-container *ngFor="let votacionActual of votaciones">
+          <tr>
+            <td>{{ votacionActual.nombre_candidato }}</td>
+            <td>{{ votacionActual.apellido_candidato }}</td>
+            <td>{{ votacionActual.nombre_partido }}</td>
+            <td>{{ votacionActual.total_votos }}</td>
+          </tr>
+        </ng-container>
+      </table>
+    </nb-card>
+  </div>
 </div>

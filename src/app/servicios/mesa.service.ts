@@ -12,6 +12,9 @@ export class MesaService {
 
   constructor(private http: HttpClient) { }
 
+  listarMesas(): Observable<Mesa[]> {
+    return this.http.get<Mesa[]>(`${environment.url_gateway}/consulta_num_mesas`);
+  }
   listar(): Observable<Mesa[]> {
     return this.http.get<Mesa[]>(`${environment.url_gateway}/mesas`);
   }

@@ -1,17 +1,24 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
-import { Votacion } from '../modelos/votacion.model';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { environment } from "../../environments/environment";
+import { Votacion } from "../modelos/votacion.model";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class VotacionesService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   listarA1(): Observable<Votacion[]> {
-    return this.http.get<Votacion[]>(`${environment.url_gateway}/visualizaciones/votos_mayores_candidato`);
+    return this.http.get<Votacion[]>(
+      `${environment.url_gateway}/visualizaciones/votos_mayores_candidato`
+    );
+  }
+
+  listarA2(num_mesa: string): Observable<Votacion[]> {
+    return this.http.get<Votacion[]>(
+      `${environment.url_gateway}/visualizaciones/mesa/${num_mesa}`
+    );
   }
 }
