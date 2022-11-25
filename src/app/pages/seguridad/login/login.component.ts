@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     }
     this.miServicioSeguridad.login(elUsuario).subscribe(
       data => {
-        this.router.navigate(['pages/inicio']);
+        this.router.navigate(['pages/home']);
         this.miServicioSeguridad.guardarDatosSesion(data);
       },
       error => {

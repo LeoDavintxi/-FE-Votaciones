@@ -6,6 +6,7 @@
         <br />
         Candidatos con mayor numero de votos
         <select [(ngModel)]="selectedValue" (change)="listarA2()">
+          <option value="todas">Todas</option>          
           <option *ngFor="let c of mesas" [ngValue]="c.num_mesa">{{ c.num_mesa }}</option>
         </select>
       </nb-card-header>

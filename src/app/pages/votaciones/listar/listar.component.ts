@@ -39,8 +39,13 @@ export class ListarComponent implements OnInit {
   }
 
   listarA2(): void {
-    this.miServicioVotaciones.listarA2(this.selectedValue).subscribe((data) => {
-      this.votaciones = data;
-    });
+    if (this.selectedValue == "todas"){
+      this.listarA1();
+    }else{
+      this.miServicioVotaciones.listarA2(this.selectedValue).subscribe((data) => {
+        this.votaciones = data;
+      });
+    }
+    
   }
 }
